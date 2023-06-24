@@ -1,6 +1,22 @@
 // src/components/SharedLayout.jsx
 // import { Suspense } from "react";
 // import { Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+import styled from "styled-components";
+
+const StyledLink = styled(NavLink)`
+padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+
+  &.active {
+    color: white;
+    background-color: purple;
+  }
+  `
 
 export const SharedLayout = () => {
   return (
@@ -20,7 +36,7 @@ export const SharedLayout = () => {
           <StyledLink to="/products">Products</StyledLink>
         </nav>
       </header>
-      <Outlet />
+      {/* <Outlet /> */}
     </div>
     // <Container>
     //   <AppBar>
