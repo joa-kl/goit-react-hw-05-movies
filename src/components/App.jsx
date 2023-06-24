@@ -1,9 +1,16 @@
+import { Routes, Route } from "react-router-dom";
+import { SharedLayout } from "./SharedLayout";
+import { Home } from "../pages/Home";
+import { Movies } from "../pages/Movies";
+import { MovieDetails } from "./MovieDetails";
+import { Cast } from "./Cast";
+import { Reviews } from "./Reviews";
 
 // import { lazy } from "react";
 
 // export const MyComponent = lazy(() => import("path/to/MyComponent"));
 
-const App = () => {
+export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
@@ -17,3 +24,4 @@ const App = () => {
   );
 };
 
+export default App;
