@@ -1,4 +1,4 @@
-import { Route, Routes, useParams, Link, useLocation, Outlet } from "react-router-dom";
+import { useParams, Link, useLocation, Outlet } from "react-router-dom";
 // import { MovieCast } from "./MovieCast";
 // import {MovieReviews} from './MovieReviews'
 import { useState, useEffect, Suspense } from "react";
