@@ -6,6 +6,7 @@ import { MovieDetails } from "./MovieDetails";
 import { MovieCast } from "./MovieCast";
 import { MovieReviews } from "./MovieReviews";
 
+
 // import { lazy } from "react";
 
 // export const MyComponent = lazy(() => import("path/to/MyComponent"));
@@ -13,7 +14,7 @@ import { MovieReviews } from "./MovieReviews";
 export const App = () => {
   return (
     <Routes>
-      {/* <Route path="/" element={<SharedLayout />}> */}
+      <Route path="/" element={<SharedLayout />}>
       <Route path="/" element={<Home />}/>
       {/* <Route path="movies" element={<Movies />} >
         <Route path="movies/:movieId" element={<MovieDetails />}>
@@ -21,7 +22,8 @@ export const App = () => {
           <Route path="reviews" element={<MovieReviews/>}></Route>
         </Route>
       {/* <Route path="*" element={<NotFound/>}/> */}
-      {/* </Route> */} */
+      </Route> */
+      
     </Routes>
   );
 };

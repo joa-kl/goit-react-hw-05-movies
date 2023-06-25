@@ -7,8 +7,6 @@ export const Home = () => {
     const [movieList, setMovieList] = useState([]);
 
     const trendingMovies = () => {
-        
-
         fetch(`${originURL}trending/movie/week?api_key=${API_KEY}`)
             .then(response => {
                 if (response.ok) {
