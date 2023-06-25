@@ -16,6 +16,7 @@ export const MovieDetails = () => {
     const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
     const location = useLocation();
 
+  
     const searchMovieById = () => {
         fetch(`${originURL}/movie/${paramsId}?api_key=${API_KEY}`)
             .then(response => {
@@ -30,7 +31,8 @@ export const MovieDetails = () => {
 
     useEffect(() => {
         searchMovieById();
-    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <section className={styles.section}>
@@ -67,7 +69,7 @@ export const MovieDetails = () => {
         )}
         <p>Additional information</p>
         <ul className={styles.list} >
-          <li  key={nanoid()}><Link to="cast" state={{ from: location.state.from }}>Cast</Link></li>
+          <li key={nanoid()}><Link to="cast" state={{ from: location.state.from }}>Cast</Link></li>
           <li key={nanoid()}><Link to="reviews" state={{ from: location.state.from }}>Reviews</Link></li>
         </ul>
 

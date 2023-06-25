@@ -18,7 +18,7 @@ padding: 8px 16px;
     color: crimson;
   }
   `
-
+  
 export const SharedLayout = () => {
   return (
     <div>
@@ -32,15 +32,5 @@ export const SharedLayout = () => {
         <Outlet />
       {/* </Suspense> */}
     </div>
-    // <Container>
-    //   <AppBar>
-    //     <Navigation />
-    //     <UserMenu />
-    //   </AppBar>
-
-    //   <Suspense fallback={<div>Loading...</div>}>
-    //     <Outlet />
-    //   </Suspense>
-    // </Container>
   );
 };
