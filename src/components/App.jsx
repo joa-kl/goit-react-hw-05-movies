@@ -16,11 +16,11 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
       <Route path="/" element={<Home />}/>
-      {/* <Route path="movies" element={<Movies />} >
-        <Route path="movies/:movieId" element={<MovieDetails />}>
+      <Route path="movies" element={<Movies />}/>
+        {/* <Route path="movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<MovieCast/>}></Route>
           <Route path="reviews" element={<MovieReviews/>}></Route>
-        </Route>
+        </Route> */}
       {/* <Route path="*" element={<NotFound/>}/> */}
       </Route> */
       
