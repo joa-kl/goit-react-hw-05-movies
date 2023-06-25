@@ -4,6 +4,7 @@ import { Route, Routes, useParams, Link, useLocation, Outlet } from "react-route
 import { useState, useEffect, Suspense } from "react";
 import { nanoid } from "nanoid";
 import { ButtonBack } from "../components/ButtonBack";
+import styles from "./MovieDetails.module.css"
 
 export const MovieDetails = () => {
 
@@ -32,41 +33,42 @@ export const MovieDetails = () => {
     }, []);
 
     return (
-        <section>
+        <section className={styles.section}>
         <ButtonBack />
         {movieDetails && (
-          <div >
-            {movieDetails.poster_path ? <img 
+          <div className={styles.container}>
+            {movieDetails.poster_path ? <img className={styles.img}
               src={`${baseImgUrl}${movieDetails.poster_path}`}
               alt={movieDetails.title}
-            /> : <img   src={Image} alt="No foto" />}
-            <div>
-              <p  key={nanoid()}>
+            /> : <img className={styles.img} src={Image} alt="No foto" />}
+            <div className={styles.movieDetails}>
+              <p className={styles.title} key={nanoid()}>
                 {movieDetails.title}
                 {movieDetails.release_date ? (
-                  <span>({movieDetails.release_date.slice(0, 4)})</span>
+                  <span> ({movieDetails.release_date.slice(0, 4)})</span>
                 ) : (<span>(----)</span>
                 )}
               </p>
               <p  key={nanoid()}>
                 User score:
-                <span >{Number.parseInt(movieDetails.vote_average * 10)} &#37;</span>
+                <span > {Number.parseInt(movieDetails.vote_average * 10)} &#37;</span>
               </p>
-              <p  key={nanoid()}>
-                Overview: <br/><span >{setMovieDetails.overview}</span>
+              <p className={styles.paragraph} key={nanoid()}>
+                Overview <br/><span className={styles.span}>{movieDetails.overview}</span>
               </p>
-              <p  key={nanoid()}>
-                Genres: <br />
+              <p className={styles.paragraph} key={nanoid()}>
+                Genres <br />
                 {movieDetails.genres.map(genre => (
-                  <span>{genre.name}</span>
-                ))}
+                  <span className={styles.span}>{genre.name}</span>
+                  ))}
               </p>
             </div>
           </div>
         )}
-        <ul >
+        <p>Additional information</p>
+        <ul className={styles.list} >
           <li  key={nanoid()}><Link to="cast" state={{ from: location.state.from }}>Cast</Link></li>
-          <li  key={nanoid()}><Link to="reviews" state={{ from: location.state.from }}>Reviews</Link></li>
+          <li key={nanoid()}><Link to="reviews" state={{ from: location.state.from }}>Reviews</Link></li>
         </ul>
 
         <Suspense fallback={<p>Loading.....</p>}>

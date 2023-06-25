@@ -1,0 +1,43 @@
+.section{
+    padding-left: 5px;
+}
+
+.container{
+    margin-top: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    box-shadow: 1px 2px  rgba(0, 0, 0, 0.2);
+}
+
+.img {
+    max-height: 300px;
+    max-width: 200px;
+    display: flex;
+}
+
+.movieDetails {
+    padding-left: 15px;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.paragraph{
+    font-weight: 500;
+    max-width: 90%;
+    text-align: justify;
+}
+
+.span{
+    margin-right:5px;
+    font-size:14px;
+    font-weight:400;
+}
+
+.list{
+    padding-left: 15px;
+    padding-bottom: 10px;
+    box-shadow: 1px 2px rgba(0, 0, 0, 0.2);
+}

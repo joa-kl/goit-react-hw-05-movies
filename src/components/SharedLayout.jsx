@@ -2,6 +2,7 @@
 // import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import styles from "./SharedLayout.module.css"
 
 import styled from "styled-components";
 
@@ -22,8 +23,8 @@ export const SharedLayout = () => {
   return (
     <div>
       <header>
-        <nav>
-          <StyledLink to="/" end>Home</StyledLink>
+        <nav className={styles.header}>
+          <StyledLink to="/" >Home</StyledLink>
           <StyledLink to="/movies">Movies</StyledLink>
         </nav>
       </header>

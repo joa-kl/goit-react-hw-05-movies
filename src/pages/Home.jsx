@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import styles from "./Home.module.css";
 
 export const Home = () => {
     const API_KEY = "964358699754c21d74c014b561cf196c";
@@ -7,7 +8,7 @@ export const Home = () => {
     const [movieList, setMovieList] = useState([]);
 
     const trendingMovies = () => {
-        fetch(`${originURL}trending/movie/week?api_key=${API_KEY}`)
+        fetch(`${originURL}trending/movie/day?api_key=${API_KEY}`)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -33,8 +34,8 @@ export const Home = () => {
         }, []);
     
     return (
-        <div>
-            <h1>Trending movies</h1>
+        <div className={styles.container}>
+            <h1>Trending movies today</h1>
             <ul>
                 {movieList.map(movie => (
                     <li key={movie.id}>
