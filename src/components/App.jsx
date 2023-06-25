@@ -2,9 +2,10 @@ import { Routes, Route } from "react-router-dom";
 import { SharedLayout } from "./SharedLayout";
 import { Home } from "../pages/Home";
 import { Movies } from "../pages/Movies";
-import { MovieDetails } from "./MovieDetails";
+import { MovieDetails } from "../pages/MovieDetails";
 import { MovieCast } from "./MovieCast";
 import { MovieReviews } from "./MovieReviews";
+import { NotFound } from "../pages/NotFound";
 
 
 // import { lazy } from "react";
@@ -13,18 +14,19 @@ import { MovieReviews } from "./MovieReviews";
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-      <Route path="/" element={<Home />}/>
-      <Route path="movies" element={<Movies />}/>
-        {/* <Route path="movies/:movieId" element={<MovieDetails />}>
-          <Route path="cast" element={<MovieCast/>}></Route>
-          <Route path="reviews" element={<MovieReviews/>}></Route>
-        </Route> */}
-      {/* <Route path="*" element={<NotFound/>}/> */}
-      </Route> */
-      
-    </Routes>
+    <div>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />}/>
+        <Route path="movies" element={<Movies />}/>
+          <Route path="movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<MovieCast/>}></Route>
+            <Route path="reviews" element={<MovieReviews/>}></Route>
+          </Route> 
+        <Route path="*" element={<NotFound/>}/>
+        </Route>
+        </Routes>
+      </div>
   );
 };
 

@@ -14,7 +14,10 @@ export const Home = () => {
                 }
                 return Promise.reject(new Error('Enter another name'));
             })
-            .then(({ results }) => setMovieList(results))
+            .then(({ results }) => {
+                setMovieList(results);
+                console.log(results);
+            })
             .catch(error => console.log(error));
     };
 

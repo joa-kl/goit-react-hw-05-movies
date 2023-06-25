@@ -1,4 +1,4 @@
-import { result } from "lodash";
+// import { result } from "lodash";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,14 +11,18 @@ export const MovieList = (props) => {
     const name = props.searchName;
 
     const searchMovieByName = () => {
-        fetch(`${originURL}/search/movie?api_key${API_KEY}${query}${name}`)
+        fetch(`${originURL}search/movie?api_key=${API_KEY}&${query}${name}`)
             .then(response => {
                 if (response.ok) {
                     return response.json();
+                    
                 }
                 return Promise.reject(new Error("Enter a movie title"));
             })
-            .then(({ results }) => setSearchMovie(results))
+            .then(({ results }) => {
+                setSearchMovie(results);
+                
+            })
             .catch(err => console.log(err));
     };
 

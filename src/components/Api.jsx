@@ -6,7 +6,7 @@
 //   }
 // };
 
-const SearchMovie = (value, paramsId, setFoo) => {
+export const SearchMovie = (value, paramsId, setFoo) => {
     const API_KEY = "964358699754c21d74c014b561cf196c";
     const originURL = "https://api.themoviedb.org/3/";
 
