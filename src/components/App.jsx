@@ -6,7 +6,7 @@ import { MovieDetails } from "../pages/MovieDetails";
 import { MovieCast } from "./MovieCast";
 import { MovieReviews } from "./MovieReviews";
 import { NotFound } from "../pages/NotFound";
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 
 // export const Home = lazy(() => import("../pages/Home"));
 // export const Movies = lazy(() => import("../pages/Movies"));
