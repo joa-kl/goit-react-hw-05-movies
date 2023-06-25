@@ -30,7 +30,7 @@ export const MovieDetails = () => {
 
     useEffect(() => {
         searchMovieById();
-    }, []);
+    });
 
     return (
         <section className={styles.section}>
