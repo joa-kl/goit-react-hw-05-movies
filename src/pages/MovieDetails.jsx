@@ -71,9 +71,9 @@ export const MovieDetails = () => {
           <li key={nanoid()}><Link to="reviews" state={{ from: location.state.from }}>Reviews</Link></li>
         </ul>
 
-        <Suspense fallback={<p>Loading.....</p>}>
+        {/* <Suspense fallback={<p>Loading.....</p>}> */}
           <Outlet />
-        </Suspense>
+        {/* </Suspense> */}
       </section>
     );
   };
