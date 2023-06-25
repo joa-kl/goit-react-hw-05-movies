@@ -1,7 +1,9 @@
-import { useState, useSearchParams } from "react";
+import { useState } from "react";
 import MoviesList from "../components/MoviesList";
 import styles from "./Movies.module.css"
-import { SearchMovie } from "../components/Api";
+// import { SearchMovie } from "../components/Api";
+// import { useLocation } from "react-router-dom";
+import Notiflix from "notiflix";
 
 
 export const Movies = () => {
@@ -12,13 +14,15 @@ export const Movies = () => {
         const firstValue = evt.currentTarget.elements.name.value;
         if (firstValue.trim() === '') {
             evt.currentTarget.reset();
+            Notiflix.Notify.warning(
+            'No movies found! Please change your request and try again');
             return;
         }
          
         setSearchName(firstValue.trim());
         evt.currentTarget.reset();
     };
-
+// -----
 //       const movies = SearchMovie();
 //   const [searchParams, setSearchParams] = useSearchParams();
 //   const productName = searchParams.get("value") ?? "";
@@ -31,7 +35,7 @@ export const Movies = () => {
 //     const nextParams = value !== "" ? { value } : {};
 //     setSearchParams(nextParams);
 //   };
-    
+//   ------  
     
     return (
         <div>

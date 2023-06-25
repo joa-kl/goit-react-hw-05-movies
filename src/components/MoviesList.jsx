@@ -1,6 +1,6 @@
 // import { result } from "lodash";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const MovieList = (props) => {
     const [searchMovie, setSearchMovie] = useState([]);
@@ -8,7 +8,7 @@ export const MovieList = (props) => {
     const API_KEY = "964358699754c21d74c014b561cf196c";
     const originURL = "https://api.themoviedb.org/3/";
     const name = props.searchName;
-     const location = useLocation();
+    //  const location = useLocation();
 
     const searchMovieByName = () => {
         fetch(`${originURL}search/movie?api_key=${API_KEY}&query=${name}`)
@@ -41,7 +41,7 @@ export const MovieList = (props) => {
             <ul>
                 {searchMovie.map(movie => (
                     <li key={movie.id}>
-                        <Link to={`/movies/${movie.id}`} state={{ from: `/movies?query=${name}` }}>{movie.title}</Link>
+                        <Link to={`/movies/${movie.id}`} state={{ from: "/movies" }}>{movie.title}</Link>
                     </li>
                 ))}
             </ul>
