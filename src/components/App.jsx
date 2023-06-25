@@ -19,7 +19,7 @@ import { Suspense } from "react";
 export const App = () => {
   return (
     <div>
-      <Suspense fallback={<p>Loading...</p>}>
+      {/* <Suspense fallback={<p>Loading...</p>}> */}
         <Routes>
           <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />}/>
@@ -31,7 +31,7 @@ export const App = () => {
           <Route path="*" element={<NotFound/>}/>
           </Route>
           </Routes>
-        </Suspense>
+        {/* </Suspense> */}
       </div>
   );
 };
