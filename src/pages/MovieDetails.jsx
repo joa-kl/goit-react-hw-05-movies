@@ -1,7 +1,7 @@
 import { useParams, Link, useLocation, Outlet } from "react-router-dom";
 // import { MovieCast } from "./MovieCast";
 // import {MovieReviews} from './MovieReviews'
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import { ButtonBack } from "../components/ButtonBack";
 import styles from "./MovieDetails.module.css"
