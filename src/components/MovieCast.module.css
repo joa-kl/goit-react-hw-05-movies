@@ -3,18 +3,18 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 5px;
-
+  list-style: none;
 }
 
 .image{
-width: 200px;
+max-width: 200px;
 height: 300px;
 }
 
 .item {
-  width: 240px;
+  max-width: 240px;
+  list-style: none;
 }
 
-li{
- list-style: none;
-}
+/* li{
+} */

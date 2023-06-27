@@ -13,63 +13,119 @@ export const MovieDetails = () => {
   const { movieDetails } = useMovieDetails(movieId);
   const location = useLocation();
   const navigate = useNavigate();
-   const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
+  // const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
-    // const API_KEY = "964358699754c21d74c014b561cf196c";
-    // const originURL = "https://api.themoviedb.org/3/";
-    // const params = useParams();
-    // const paramsId = Number(params.movieId)
-    // const [movieDetails, setMovieDetails] = useState();
-   
+  // const API_KEY = "964358699754c21d74c014b561cf196c";
+  // const originURL = "https://api.themoviedb.org/3/";
+  // const params = useParams();
+  // const paramsId = Number(params.movieId)
+  // const [movieDetails, setMovieDetails] = useState();
+  return (
+     <div>
+      <ButtonBack />
+      <h2>
+        {movieDetails.title} (
+        {movieDetails.release_date
+          ? movieDetails.release_date.substring(0, 4)
+          : ''}
+        )
+      </h2>
 
-    return (
-        <div className={styles.section}>
-        <ButtonBack />
-        {movieDetails && (
-          <div className={styles.container}>
-            {movieDetails.poster_path ? <img className={styles.img}
-              src={`${baseImgUrl}${movieDetails.poster_path}`}
-              alt={movieDetails.title}
-            /> : <img className={styles.img} src={Image} alt="No foto" />}
-            <div className={styles.movieDetails}>
-              <p className={styles.title} key={nanoid()}>
-                {movieDetails.title}
-                {movieDetails.release_date ? (
-                  <span> ({movieDetails.release_date.slice(0, 4)})</span>
-                ) : (<span>(----)</span>
-                )}
-              </p>
-              <p  key={nanoid()}>
-                User score:
-                <span > {Number.parseInt(movieDetails.vote_average * 10)} &#37;</span>
-              </p>
-              <p className={styles.paragraph} key={nanoid()}>
-                Overview <br/><span className={styles.span}>{movieDetails.overview}</span>
-              </p>
-              <p className={styles.paragraph} key={nanoid()}>
-                Genres <br />
-                {movieDetails.genres.map(genre => (
-                  <span className={styles.span}>{genre.name}</span>
-                  ))}
-              </p>
-            </div>
-          </div>
-        )}
-        <p>Additional information</p>
-        <ul className={styles.list} >
+      <img
+        src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${movieDetails.poster_path}`}
+        alt="{movieDetails.original_title}"
+      />
+
+      <p>
+        User Score:{' '}
+        {movieDetails.vote_average
+          ? Math.fround(movieDetails.vote_average * 10).toFixed(0)
+          : ''}
+        %
+      </p>
+      <h3>Overview</h3>
+      <p>{movieDetails.overview}</p>
+
+      <h4>Genres</h4>
+      <p>
+        {movieDetails.genres
+          ? movieDetails.genres.map(genre => genre.name).join(' ')
+          : ''}
+      </p>
+      <p>Additional information</p>
+        <ul className={styles.list}>
           <li key={nanoid()}>
-            <Link to="cast" state={{ from: location.state.from }}>Cast</Link></li>
-          <li key={nanoid()}>
-            <Link to="reviews" state={{ from: location.state.from }}>Reviews</Link></li>
+            <Link to="cast" state={{ from: location.state.from }}>
+              Cast
+            </Link>
+          </li>
+        <li key={nanoid()}>
+            <Link to="reviews" state={{ from: location.state.from }}>
+              Reviews
+            </Link>
+          </li>
         </ul>
-        {/* <Suspense fallback={<p>Loading.....</p>}>
-        //  <Outlet />
-        </Suspense> */}
+        <Outlet />
+    </div>
 
-        <Outlet/>
-      </div>
-    );
-};
+    // <p>Additional information</p>
+    //     <ul className={styles.list} >
+    //       <li key={nanoid()}>
+    //         <Link to="cast" state={{ from: location.state.from }}>Cast</Link></li>
+    //       <li key={nanoid()}>
+    //         <Link to="reviews" state={{ from: location.state.from }}>Reviews</Link></li>
+    //     </ul>
+  );
+
+}
+
+    // return (
+    //     <div className={styles.section}>
+    //     <ButtonBack />
+    //       <div className={styles.container}>
+    //         {movieDetails.poster_path ? <img className={styles.img}
+    //           src={`${baseImgUrl}${movieDetails.poster_path}`}
+    //           alt={movieDetails.title}
+    //         /> : <img className={styles.img} src={Image} alt="No foto" />}
+    //         <div className={styles.movieDetails}>
+    //           <p className={styles.title} key={nanoid()}>
+    //             {movieDetails.title}
+    //             {movieDetails.release_date ? (
+    //               <span> ({movieDetails.release_date.slice(0, 4)})</span>
+    //             ) : (<span>(----)</span>
+    //             )}
+    //           </p>
+    //           <p  key={nanoid()}>
+    //             User score:
+    //             <span > {Number.parseInt(movieDetails.vote_average * 10)} &#37;</span>
+    //           </p>
+    //           <p className={styles.paragraph} key={nanoid()}>
+    //             Overview <br/><span className={styles.span}>{movieDetails.overview}</span>
+    //           </p>
+    //           <p className={styles.paragraph} key={nanoid()}>
+    //             Genres <br />
+    //             {movieDetails.genres.map(genre => (
+    //               <span className={styles.span}>{genre.name}</span>
+    //               ))}
+    //           </p>
+    //         </div>
+    //       </div>
+        
+    //     <p>Additional information</p>
+    //     <ul className={styles.list} >
+    //       <li key={nanoid()}>
+    //         <Link to="cast" state={{ from: location.state.from }}>Cast</Link></li>
+    //       <li key={nanoid()}>
+    //         <Link to="reviews" state={{ from: location.state.from }}>Reviews</Link></li>
+    //     </ul>
+    //     {/* <Suspense fallback={<p>Loading.....</p>}>
+    //     //  <Outlet />
+    //     </Suspense> */}
+
+    //     <Outlet/>
+    //   </div>
+    // );
+
   
 
   // const searchMovieById = () => {
