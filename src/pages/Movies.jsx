@@ -1,16 +1,19 @@
-import { useState, useEffect } from "react";
-import MoviesList from "../components/MoviesList";
-import styles from "./Movies.module.css"
-// import { SearchMovie } from "../components/Api";
-// import { useLocation } from "react-router-dom";
-import Notiflix from "notiflix";
-import { Navigate, useSearchParams } from "react-router-dom";
-import * as API from "../utils/Api";
-import { SearchForm } from "components/SearchForm";
+// import { useState, useEffect } from "react";
+// import MoviesList from "../components/MoviesList";
+// import styles from "./Movies.module.css"
+// // import { SearchMovie } from "../components/Api";
+// // import { useLocation } from "react-router-dom";
+// import Notiflix from "notiflix";
+// import { Navigate, useSearchParams } from "react-router-dom";
+// import * as API from "../components/Api";
+import { SearchForm } from "../components/SearchForm";
 
 
 export const Movies = () => {
       return <SearchForm />;
+};
+
+export default Movies;
 
 //     const [searchName, setSearchName] = useState("");
 //     const [movies, setMovies] = useState([]);
@@ -67,7 +70,5 @@ export const Movies = () => {
 //             {/* <MoviesList products={visibleMovies} /> */}
 //         </div>
 //     );
-};
 
-export default Movies;
 
