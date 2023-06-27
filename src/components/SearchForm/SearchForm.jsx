@@ -2,15 +2,17 @@ import { useSearchParams } from 'react-router-dom';
 import * as API from '../../utils/Api';
 import { useEffect, useState } from 'react';
 import { MoviesList } from '../MoviesList/MoviesList';
+import Notiflix from 'notiflix';
 
 export const SearchForm = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleSubmit = e => {
-    setSearchParams({ query: e.target[0].value });
-    e.preventDefault();
+  const handleSubmit = e => { 
+      setSearchParams({ query: e.target[0].value });
+      e.preventDefault();
     return;
+    
   };
 
   useEffect(() => {
@@ -18,6 +20,10 @@ export const SearchForm = () => {
     if (movieTitle) {
       API.searchMovies(movieTitle).then(ret => setMovies(ret));
     }
+    // else {
+    //   Notiflix.Notify.warning("Enter a movie title")
+    // } 
+
   }, [searchParams]);
 
   return (
