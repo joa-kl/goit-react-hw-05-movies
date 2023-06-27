@@ -1,41 +1,29 @@
-import { useParams, Link, useLocation, Outlet } from "react-router-dom";
+import { useParams, Link, useLocation, Outlet, useNavigate } from "react-router-dom";
 // import { MovieCast } from "./MovieCast";
 // import {MovieReviews} from './MovieReviews'
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import { ButtonBack } from "../components/ButtonBack";
 import styles from "./MovieDetails.module.css"
+import { useMovieDetails } from '../utils/useMovieDetails';
+// import { Suspense } from "react";
 
 export const MovieDetails = () => {
+  const { movieId } = useParams();
+  const { movieDetails } = useMovieDetails(movieId);
+  const location = useLocation();
+  const navigate = useNavigate();
+   const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
-    const API_KEY = "964358699754c21d74c014b561cf196c";
-    const originURL = "https://api.themoviedb.org/3/";
-    const params = useParams();
-    const paramsId = Number(params.movieId)
-    const [movieDetails, setMovieDetails] = useState();
-    const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
-    const location = useLocation();
-
-  
-    const searchMovieById = () => {
-        fetch(`${originURL}/movie/${paramsId}?api_key=${API_KEY}`)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                return Promise.reject(new Error("Enter a movie title"));
-            })
-            .then(results => setMovieDetails(results))
-            .catch(err => console.log(err));
-    }
-
-    useEffect(() => {
-        searchMovieById();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // const API_KEY = "964358699754c21d74c014b561cf196c";
+    // const originURL = "https://api.themoviedb.org/3/";
+    // const params = useParams();
+    // const paramsId = Number(params.movieId)
+    // const [movieDetails, setMovieDetails] = useState();
+   
 
     return (
-        <section className={styles.section}>
+        <div className={styles.section}>
         <ButtonBack />
         {movieDetails && (
           <div className={styles.container}>
@@ -69,16 +57,37 @@ export const MovieDetails = () => {
         )}
         <p>Additional information</p>
         <ul className={styles.list} >
-          <li key={nanoid()}><Link to="cast" state={{ from: location.state.from }}>Cast</Link></li>
-          <li key={nanoid()}><Link to="reviews" state={{ from: location.state.from }}>Reviews</Link></li>
+          <li key={nanoid()}>
+            <Link to="cast" state={{ from: location.state.from }}>Cast</Link></li>
+          <li key={nanoid()}>
+            <Link to="reviews" state={{ from: location.state.from }}>Reviews</Link></li>
         </ul>
+        {/* <Suspense fallback={<p>Loading.....</p>}>
+        //  <Outlet />
+        </Suspense> */}
 
-        {/* <Suspense fallback={<p>Loading.....</p>}> */}
-          <Outlet />
-        {/* </Suspense> */}
-      </section>
+        <Outlet/>
+      </div>
     );
-  };
+};
+  
+
+  // const searchMovieById = () => {
+    //     fetch(`${originURL}/movie/${paramsId}?api_key=${API_KEY}`)
+    //         .then(response => {
+    //             if (response.ok) {
+    //                 return response.json();
+    //             }
+    //             return Promise.reject(new Error("Enter a movie title"));
+    //         })
+    //         .then(results => setMovieDetails(results))
+    //         .catch(err => console.log(err));
+    // }
+
+    // useEffect(() => {
+    //     searchMovieById();
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
         // <section>
         //     {movieDetails && (
