@@ -3,9 +3,9 @@ import { useParams, Link, useLocation, Outlet } from "react-router-dom";
 // import {MovieReviews} from './MovieReviews'
 // import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import { ButtonBack } from "../components/ButtonBack";
+import { ButtonBack } from "../../components/ButtonBack/ButtonBack";
 import styles from "./MovieDetails.module.css"
-import { useMovieDetails } from '../utils/useMovieDetails';
+import { useMovieDetails } from '../../utils/useMovieDetails';
 // import { Suspense } from "react";
 
 export const MovieDetails = () => {

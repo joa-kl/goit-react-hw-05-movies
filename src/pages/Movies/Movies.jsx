@@ -6,7 +6,7 @@
 // import Notiflix from "notiflix";
 // import { Navigate, useSearchParams } from "react-router-dom";
 // import * as API from "../components/Api";
-import { SearchForm } from "../components/SearchForm";
+import { SearchForm } from "../../components/SearchForm/SearchForm";
 
 
 export const Movies = () => {

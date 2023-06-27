@@ -1,11 +1,11 @@
 // import { SearchMovie } from './Api';
 // import { useEffect, useState } from 'react';
 
-import Image from './Image/Image.jpg';
+import Image from '../Image/Image.jpg';
 
 
 import { useParams } from 'react-router-dom';
-import { useMovieCredits } from '../utils/useMovieCredits';
+import { useMovieCredits } from '../../utils/useMovieCredits';
 import styles from './MovieCast.module.css';
 
 export const MovieCast = () => {

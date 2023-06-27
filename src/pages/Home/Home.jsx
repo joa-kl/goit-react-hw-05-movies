@@ -5,8 +5,8 @@ import styles from "./Home.module.css";
 // import { useMoviesList } from "../utils/useMoviesList";
 // import { MoviesList } from "../components/MoviesList";
 
-import { useTrendingList } from '../utils/useTrendingList';
-import { TrendingList } from "../components/TrendingList";
+import { useTrendingList } from '../../utils/useTrendingList';
+import { TrendingList } from "../../components/TrendingList/TrendingList";
 
 export const Home = () => {
   const { trendingMovies } = useTrendingList();

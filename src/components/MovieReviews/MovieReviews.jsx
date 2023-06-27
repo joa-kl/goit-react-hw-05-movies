@@ -1,7 +1,7 @@
 // import { SearchMovie } from "./Api";
 // import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useMovieReviews } from '../utils/useMovieReviews';
+import { useMovieReviews } from '../../utils/useMovieReviews';
 import { nanoid } from "nanoid";
 import styles from "./MovieReviews.module.css"
 

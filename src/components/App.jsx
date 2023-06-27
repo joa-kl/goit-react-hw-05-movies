@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import { SharedLayout } from "./SharedLayout";
-import { Home } from "../pages/Home";
-import { Movies } from "../pages/Movies";
-import { MovieDetails } from "../pages/MovieDetails";
-import { MovieCast } from "./MovieCast";
-import { MovieReviews } from "./MovieReviews";
-import { NotFound } from "../pages/NotFound";
+import { SharedLayout } from "./SharedLayout/SharedLayout";
+import { Home } from "../pages/Home/Home";
+import { Movies } from "../pages/Movies/Movies";
+import { MovieDetails } from "../pages/MovieDetails/MovieDetails";
+import { MovieCast } from "./MovieCast/MovieCast";
+import { MovieReviews } from "./MovieReviews/MovieReviews";
+import { NotFound } from "../pages/NotFound/NotFound";
 
 // import { lazy } from "react";
 
