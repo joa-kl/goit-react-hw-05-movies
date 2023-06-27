@@ -1,12 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { SharedLayout } from "./SharedLayout/SharedLayout";
-// import { Home } from "../pages/Home/Home";
-// import { Movies } from "../pages/Movies/Movies";
-// import { MovieDetails } from "../pages/MovieDetails/MovieDetails";
-// import { MovieCast } from "./MovieCast/MovieCast";
-// import { MovieReviews } from "./MovieReviews/MovieReviews";
-// import { NotFound } from "../pages/NotFound/NotFound";
-
 import { lazy } from "react";
 
 export const Home = lazy(() => import("../pages/Home/Home"));
@@ -20,7 +13,6 @@ export const NotFound = lazy(() => import("../pages/NotFound/NotFound"));
 export const App = () => {
   return (
     <div>
-      {/* <Suspense fallback={<p>Loading...</p>}> */}
         <Routes>
           <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />}/>
@@ -32,7 +24,6 @@ export const App = () => {
           <Route path="*" element={<NotFound/>}/>
           </Route>
           </Routes>
-        {/* </Suspense> */}
       </div>
   );
 };
