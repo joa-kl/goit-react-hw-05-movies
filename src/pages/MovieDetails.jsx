@@ -21,12 +21,13 @@ export const MovieDetails = () => {
   // const paramsId = Number(params.movieId)
   // const [movieDetails, setMovieDetails] = useState();
   return (
-     <div className={styles.page_container}>
+    <div className={styles.page_container}>
       <ButtonBack />
       <div className={styles.container}>
-      <img className={styles.img}
-        src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${movieDetails.poster_path}`}
-        alt="{movieDetails.original_title}"
+        <img
+          className={styles.img}
+          src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${movieDetails.poster_path}`}
+          alt="{movieDetails.original_title}"
         />
         <div className={styles.container_details}>
           <h2 className={styles.title}>
@@ -46,7 +47,6 @@ export const MovieDetails = () => {
           </p>
           <h3>Overview</h3>
           <p>{movieDetails.overview}</p>
-          
 
           <h4>Genres</h4>
           <p>
@@ -55,24 +55,23 @@ export const MovieDetails = () => {
               : ''}
           </p>
         </div>
-
       </div>
 
       <p>Additional information</p>
 
-        <ul className={styles.list}>
-          <li key={nanoid()} className={styles.list_item}>
-            <Link to="cast" state={{ from: location.state.from }}>
-              Cast
-            </Link>
-          </li>
-        <li key={nanoid()}>
-            <Link to="reviews" state={{ from: location.state.from }}>
-              Reviews
-            </Link>
-          </li>
-        </ul>
-        <Outlet />
+      <ul className={styles.list}>
+        <li key={nanoid()} className={styles.list_item}>
+          <Link to="cast" state={{ from: location.state.from }}>
+            Cast
+          </Link>
+        </li>
+        <li key={nanoid()} className={styles.list_item}>
+          <Link to="reviews" state={{ from: location.state.from }}>
+            Reviews
+          </Link>
+        </li>
+      </ul>
+      <Outlet />
     </div>
   );
 }

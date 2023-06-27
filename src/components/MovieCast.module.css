@@ -1,20 +1,19 @@
 .list {
-  display: flexbox;
+  display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 5px;
+  list-style: none;
 
 }
 
 .image{
-max-width: 200px;
+width: 200px;
 height: 300px;
 }
 
-.item {
-  width: 240px;
-  
-}
+ .item {
+  width: 240px; 
 
-/* li{
-} */
+ } 
+

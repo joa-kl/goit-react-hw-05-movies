@@ -15,8 +15,8 @@ export const MovieCast = () => {
   const baseImgUrl = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/';
 
   return (
-    <div className={styles.list}>
-      <ul >
+    <div >
+      <ul className={styles.list}>
         {movieCredits.map(hero => (
           <li className={styles.item} key={hero.id} >
             {hero.profile_path
