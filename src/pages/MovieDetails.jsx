@@ -1,4 +1,4 @@
-import { useParams, Link, useLocation, Outlet, useNavigate } from "react-router-dom";
+import { useParams, Link, useLocation, Outlet } from "react-router-dom";
 // import { MovieCast } from "./MovieCast";
 // import {MovieReviews} from './MovieReviews'
 // import { useState, useEffect } from "react";
@@ -12,7 +12,7 @@ export const MovieDetails = () => {
   const { movieId } = useParams();
   const { movieDetails } = useMovieDetails(movieId);
   const location = useLocation();
-  const navigate = useNavigate();
+  
   // const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
   // const API_KEY = "964358699754c21d74c014b561cf196c";
@@ -61,7 +61,7 @@ export const MovieDetails = () => {
       <p>Additional information</p>
 
         <ul className={styles.list}>
-          <li key={nanoid()}>
+          <li key={nanoid()} className={styles.list_item}>
             <Link to="cast" state={{ from: location.state.from }}>
               Cast
             </Link>
